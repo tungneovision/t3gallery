@@ -12,7 +12,9 @@ async function Images() {
       {images.map((image) => (
         <div key={image.id} className="flex w-48 flex-col">
           <img src={image.url} alt="image" />
-          <div>{image.name}</div>
+          <div style={{ overflow: "hidden", wordWrap: "break-word" }}>
+            {image.name}
+          </div>
         </div>
       ))}
     </div>
@@ -23,7 +25,9 @@ export default async function HomePage() {
   return (
     <main className="">
       <SignedOut>
-        <div className="h-full w-full text-2xl text-center">please sign in </div>
+        <div className="h-full w-full text-center text-2xl">
+          please sign in{" "}
+        </div>
       </SignedOut>
       <SignedIn>
         <Images />
