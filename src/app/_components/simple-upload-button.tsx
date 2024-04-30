@@ -5,7 +5,6 @@ import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 import { useEffect } from "react";
 import { usePostHog } from "posthog-js/react";
-import { error } from "console";
 
 // inferred input off useUploadThing
 type Input = Parameters<typeof useUploadThing>;
@@ -105,7 +104,7 @@ export function SimpleUploadButton() {
       );
     },
     onUploadError(err) {
-      posthog.capture("upload erro", { error });
+      posthog.capture("upload erro", { err });
       toast.dismiss("upload-begin");
       toast.error("upload error");
     },
